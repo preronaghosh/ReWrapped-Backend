@@ -7,6 +7,7 @@ const userRoutes = require("./routes/userRoutes");
 
 const app = express();
 
+// Use the REACT_APP_CLIENT environment variable for the CORS origin
 app.use(cors({ credentials: true, origin: 'http://localhost:3000' }));
 app.use(cookieParser());
 app.use(express.json());
