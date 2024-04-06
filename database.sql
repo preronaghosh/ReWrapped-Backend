@@ -3,16 +3,19 @@
 CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
 
 -- DROP TABLE IF EXISTS users CASCADE;
-DROP TABLE IF EXISTS followers;
 DROP TABLE IF EXISTS recently_played_tracks;
 DROP TABLE IF EXISTS recommended_tracks;
+DROP TABLE IF EXISTS followers;
 DROP TABLE IF EXISTS listening_trends;
+DROP TABLE IF EXISTS shared_playlists CASCADE;
+DROP TABLE IF EXISTS shared_playlist_tracks;
 
 CREATE TABLE users(
   user_id uuid DEFAULT uuid_generate_v4(),
   user_name VARCHAR(255) NOT NULL UNIQUE,
   user_email VARCHAR(255) NOT NULL UNIQUE,
   user_password VARCHAR(255) NOT NULL,
+  is_deleted BOOLEAN DEFAULT FALSE,
   PRIMARY KEY(user_id)
 );
 
@@ -56,7 +59,7 @@ CREATE TABLE IF NOT EXISTS shared_playlists (
     playlist_id SERIAL PRIMARY KEY,
     playlist_name VARCHAR(255) NOT NULL,
     createdbyemail VARCHAR(255) NOT NULL,
-    sharedwithemail VARCHAR(255) NOT NULL,
+    sharedwithemail VARCHAR(255) NOT NULL
 );
 
 CREATE TABLE IF NOT EXISTS shared_playlist_tracks (
@@ -67,7 +70,6 @@ CREATE TABLE IF NOT EXISTS shared_playlist_tracks (
     FOREIGN KEY (playlist_id) REFERENCES shared_playlists(playlist_id)
     ON DELETE CASCADE --ensures that tracks are deleted if the playlist is deleted
 );
-
 
 -- Create tables end
 

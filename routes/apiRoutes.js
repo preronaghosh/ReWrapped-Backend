@@ -2,7 +2,6 @@
 
 const express = require('express');
 const authController = require('../controllers/authController');
-//const { getRecentlyPlayed, getRecommended } = require('../controllers/authController'); // Import the new API endpoint handlers
 
 const router = express.Router();
 
@@ -14,5 +13,6 @@ router.get('/callback', authController.callback);
 router.get('/api/recently-played/:userId', authController.getRecentlyPlayed);
 router.get('/api/recommended/:userId', authController.getRecommended);
 router.get('/api/top-genres/:userId', authController.getTop);
+router.get('/api/listening-trends/:userId', authController.getListeningTrend);
 
 module.exports = router;
