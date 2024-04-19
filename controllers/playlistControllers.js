@@ -184,7 +184,7 @@ exports.getAllTracksFromPlaylist = getAllTracksFromPlaylist;
 // only test
 /* istanbul ignore next */
 exports.deleteSharedPlaylistsContent = deleteSharedPlaylistsContent;
-// curl -X DELETE https://rewrapped-be-production.up.railway.app/deleteAllSharedPlaylists
+// curl -X DELETE http://localhost:6001/deleteAllSharedPlaylists
 /* istanbul ignore next */
 exports.deleteAllTracks = deleteAllTracks;
-// curl -X DELETE https://rewrapped-be-production.up.railway.app/deleteAllTracks
+// curl -X DELETE http://localhost:6001/deleteAllTracks
