@@ -3,6 +3,7 @@
 CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
 
 -- DROP TABLE IF EXISTS users CASCADE;
+DROP TABLE IF EXISTS users;
 DROP TABLE IF EXISTS recently_played_tracks;
 DROP TABLE IF EXISTS recommended_tracks;
 DROP TABLE IF EXISTS followers;
