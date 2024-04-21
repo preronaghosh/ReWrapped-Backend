@@ -61,8 +61,8 @@ const authController = {
       request.post(authOptions, function (error, response, body) {
         if (!error && response.statusCode === 200) {
 
-          var access_token = body.access_token,
-            refresh_token = body.refresh_token;
+          let access_token = body.access_token;
+          let refresh_token = body.refresh_token;
 
           // Fetch user's profile information
           const profileOptions = {
